@@ -113,5 +113,3 @@ void loop() {
 ## Result:
 The MQ-2 gas sensor successfully detected the presence of gas and sent readings to the Arduino.
 Thus, the gas leak detection and air quality monitoring system worked as expected.
-## Result:
-
