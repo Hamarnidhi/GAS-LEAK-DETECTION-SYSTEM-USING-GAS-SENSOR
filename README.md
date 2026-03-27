@@ -56,11 +56,62 @@ Step 7: Save Your Work
 •	Stop Simulation: Click "Stop Simulation" to end the simulation.
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
+## Circuit:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7b728f2e-8e26-4276-bf7a-c2df5837114b" />
+
 ## Program:
+```
+int LED = A1;          //Red LED
+int LED1 = A3;         //Green LED
+int gas_pin = A0;       // For Gas Sensor
+int buzzer_pin = A2;   // For Buzzer
 
+
+
+void setup() 
+{
+  Serial.begin(9600);
+  pinMode (buzzer_pin, OUTPUT);
+  pinMode (gas_pin, INPUT);
+}
+
+void loop() {
+  	float sensorValue,gas_pin;
+	sensorValue = analogRead(gas_pin); // read analog input pin 0
+
+
+  if(sensorValue >= 300)
+  {  
+    digitalWrite(LED,HIGH);
+    digitalWrite(LED1,LOW);
+
+    digitalWrite (buzzer_pin, HIGH);
+    //Serial.println();
+    Serial.print(sensorValue);
+    Serial.println(" |SMOKE DETECTED|");     
+  }
+  
+  else
+  {
+  	digitalWrite(LED,LOW);
+    digitalWrite(LED1,HIGH);
+    
+    digitalWrite (buzzer_pin, LOW);
+    Serial.println();
+    Serial.println("Sensor Value: ");
+    Serial.print(sensorValue);
+    //Serial.print(" |Safe Mode|");
+  } 
+ 
+  delay(1000);
+
+}
+```
 ## Output:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/203099e6-4b1b-4bb7-91af-00680155710b" />
 
-   
-
+## Result:
+The MQ-2 gas sensor successfully detected the presence of gas and sent readings to the Arduino.
+Thus, the gas leak detection and air quality monitoring system worked as expected.
 ## Result:
 
